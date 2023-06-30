@@ -1,3 +1,5 @@
+/* eslint-disable */
+
 import {
   AuthBindings,
   Authenticated,
@@ -5,6 +7,14 @@ import {
   Refine,
 } from "@refinedev/core";
 import { RefineKbar, RefineKbarProvider } from "@refinedev/kbar";
+
+import {
+  AccountCircleOutlined,
+  ChatBubbleOutline,
+  PeopleAltOutlined,
+  StarOutlineRounded,
+  VillaOutlined,
+} from "@mui/icons-material";
 
 import {
   ErrorComponent,
@@ -21,6 +31,9 @@ import routerBindings, {
   NavigateToResource,
   UnsavedChangesNotifier,
 } from "@refinedev/react-router-v6";
+
+// import { Login, Home} from "pages/login"
+
 import dataProvider from "@refinedev/simple-rest";
 import axios, { AxiosRequestConfig } from "axios";
 import { CredentialResponse } from "interfaces/google";
@@ -36,11 +49,19 @@ import {
   CategoryList,
   CategoryShow,
 } from "pages/categories";
+
+
+import { Header } from "./components/layout/header";
+import { Title } from "./components/layout/title";
+import { Sider } from "components/layout/sider";
+import { Layout} from "./components/layout/layout";
 import { Login } from "pages/login";
+
 import { BrowserRouter, Outlet, Route, Routes } from "react-router-dom";
 import { parseJwt } from "utils/parse-jwt";
-import { Header } from "./components/header";
+
 import { ColorModeContextProvider } from "./contexts/color-mode";
+import { MuiInferencer } from "@refinedev/inferencer/mui";
 
 const axiosInstance = axios.create();
 axiosInstance.interceptors.request.use((request: AxiosRequestConfig) => {
@@ -146,32 +167,47 @@ function App() {
               notificationProvider={notificationProvider}
               routerProvider={routerBindings}
               authProvider={authProvider}
+              Title={Title}
+              Sider={Sider}
+            
+              Header={Header}
+              LoginPage={Login}
+        //      DashBoardPage={Home}
               resources={[
                 {
-                  name: "blog_posts",
-                  list: "/blog-posts",
-                  create: "/blog-posts/create",
-                  edit: "/blog-posts/edit/:id",
-                  show: "/blog-posts/show/:id",
-                  meta: {
-                    canDelete: true,
-                  },
+                  name: "property",
+                  list: MuiInferencer,
+                  icon: <VillaOutlined />
                 },
                 {
-                  name: "categories",
-                  list: "/categories",
-                  create: "/categories/create",
-                  edit: "/categories/edit/:id",
-                  show: "/categories/show/:id",
-                  meta: {
-                    canDelete: true,
-                  },
+                  name: "agent",
+                  list: MuiInferencer,
+                  icon: <VillaOutlined />
+                },
+                {
+                  name: "review",
+                  list: MuiInferencer,
+                  icon: <StarOutlineRounded/>
+                },
+                {
+                  name: "message",
+                  list: MuiInferencer,
+                  icon: <ChatBubbleOutline/>
+                },
+                {
+                  name: "my-profile",
+                  options: { label: "My Profile" },
+                  list: MuiInferencer,
+                  icon: <AccountCircleOutlined />
                 },
               ]}
+             
+
               options={{
                 syncWithLocation: true,
                 warnWhenUnsavedChanges: true,
               }}
+              
             >
               <Routes>
                 <Route

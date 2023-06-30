@@ -12,4 +12,6 @@ A - Instalacion inicial
 7 - Se crea la carpeta constants y se copian las constants del github
 8 - Se crea en la carpeta Utils el archivo validateForm.ts con la info del github
 9 - Se copian las interfaces 
-10 - 
+10 - Se crea la carpeta charts con el archivo chart.config.ts
+11 - Se crea la carpeta sider con el archivo index.tsx
+12 - 
