@@ -1,0 +1,15 @@
+
+Pasos realizados:
+
+A - Instalacion inicial
+
+1 - Instalar refine
+2 - Instalar en client apexcharts para los graficos
+3 - Se comienza modificando el archivo login.tsx
+4 - Se copian los assets del github en el scr
+5 - Se copian las fonts en index.html
+6 - Se copia el index.css del github
+7 - Se crea la carpeta constants y se copian las constants del github
+8 - Se crea en la carpeta Utils el archivo validateForm.ts con la info del github
+9 - Se copian las interfaces 
+10 - 
