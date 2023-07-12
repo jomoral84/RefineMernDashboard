@@ -10,6 +10,7 @@
     "@mui/material": "^5.8.6",
     "@mui/x-data-grid": "^6.6.0",
     "@pankod/refine": "^2.7.8",
+    "@pankod/refine-mui": "^3.63.0",
     "@refinedev/cli": "^2.5.1",
     "@refinedev/core": "^4.5.8",
     "@refinedev/inferencer": "^4.0.0",

@@ -14,4 +14,10 @@ A - Instalacion inicial
 9 - Se copian las interfaces 
 10 - Se crea la carpeta charts con el archivo chart.config.ts
 11 - Se crea la carpeta sider con el archivo index.tsx
-12 - 
+12 - Se crean todas las pages
+
+
+B - Home
+1 - Creacion de componentes charts, common, Home
+2 - Instalacion material Ui para Refine
+3 - 
