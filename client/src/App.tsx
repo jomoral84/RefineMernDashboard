@@ -60,6 +60,9 @@ function App() {
     login: async ({ credential }: CredentialResponse) => {
       const profileObj = credential ? parseJwt(credential) : null;
 
+    // Save user to MongoDB
+
+
       if (profileObj) {
         const response = await fetch("http://localhost:8080/api/v1/users", {
           method: "POST",
@@ -70,7 +73,7 @@ function App() {
             avatar: profileObj.picture,
           }),
         });
-
+ 
         const data = await response.json();
 
         if (response.status === 200) {
@@ -90,6 +93,7 @@ function App() {
 
       return Promise.resolve();
     },
+    
     logout: () => {
       const token = localStorage.getItem("token");
 

@@ -1,7 +1,7 @@
 
 Pasos realizados:
 
-A - Instalacion inicial
+A - Instalacion inicial Client
 
 1 - Instalar refine
 2 - Instalar en client apexcharts para los graficos
@@ -21,3 +21,13 @@ B - Home
 1 - Creacion de componentes charts, common, Home
 2 - Instalacion material Ui para Refine
 3 - 
+
+
+
+---------------------
+
+A - Instalacion Server
+
+1 - npm install cloudinary cors dotenv express mongoose nodemon
+
+
