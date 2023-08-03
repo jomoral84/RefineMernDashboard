@@ -1,23 +1,16 @@
-/* eslint-disable */
-
-import { useLogin } from "@refinedev/core";
 import { useEffect, useRef } from "react";
-
-import Box from "@mui/material/Box";
+import { useLogin } from "@refinedev/core";
 import Container from "@mui/material/Container";
-import Typography from "@mui/material/Typography";
-import { ThemedTitleV2 } from "@refinedev/mui";
+import Box from "@mui/material/Box";
 
 import { yariga } from "../assets";
 
 import { CredentialResponse } from "../interfaces/google";
 
-// Todo: Update your Google Client ID here
-// const GOOGLE_CLIENT_ID =
-//   "1041339102270-e1fpe2b6v6u1didfndh7jkjmpcashs4f.apps.googleusercontent.com";
-
 export const Login: React.FC = () => {
-  const { mutate: login } = useLogin<CredentialResponse>();
+  const { mutate: login } = useLogin<CredentialResponse>({
+    v3LegacyAuthProviderCompatible: true,
+  });
 
   const GoogleButton = (): JSX.Element => {
     const divRef = useRef<HTMLDivElement>(null);
@@ -45,40 +38,39 @@ export const Login: React.FC = () => {
       } catch (error) {
         console.log(error);
       }
-    }, []);
+    }, []); // you can also add your client id as dependency here
 
     return <div ref={divRef} />;
   };
 
   return (
-    <Container
-      style={{
-        height: "100vh",
-        display: "flex",
-        justifyContent: "center",
-        alignItems: "center",
-      }}
-    >
-      <Box
-        display="flex"
-        gap="36px"
-        justifyContent="center"
-        flexDirection="column"
+    <Box component="div" sx={{ backgroundColor: "#FCFCFC" }}>
+      <Container
+        component="main"
+        maxWidth="xs"
+        sx={{
+          display: "flex",
+          flexDirection: "column",
+          justifyContent: "center",
+          height: "100vh",
+        }}
       >
-        <ThemedTitleV2
-          collapsed={false}
-          wrapperStyles={{
-            fontSize: "22px",
+        <Box
+          sx={{
+            display: "flex",
             justifyContent: "center",
+            flexDirection: "column",
+            alignItems: "center",
           }}
-        />
-
-        <GoogleButton />
-
-        <Typography align="center" color={"text.secondary"} fontSize="12px">
-          <img style={{ padding: "0 5px" }} alt="Yariga Logo" src={yariga} />
-        </Typography>
-      </Box>
-    </Container>
+        >
+          <div>
+            <img src={yariga} alt="Yariga Logo" />
+          </div>
+          <Box mt={4}>
+            <GoogleButton />
+          </Box>
+        </Box>
+      </Container>
+    </Box>
   );
 };

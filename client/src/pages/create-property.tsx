@@ -1,16 +1,12 @@
-/* eslint-disable */
-
-import React from "react";
 import { useState } from "react";
-import { useForm } from "@refinedev/react-hook-form";
 import { useGetIdentity } from "@refinedev/core";
+import { useForm } from "@refinedev/react-hook-form";
+
 import { FieldValues } from "react-hook-form";
-import { useNavigate } from "react-router-dom";
 
 import Form from "components/common/Form";
 
 const CreateProperty = () => {
-  const navigate = useNavigate();
   const { data: user } = useGetIdentity({
     v3LegacyAuthProviderCompatible: true,
   });
@@ -57,5 +53,4 @@ const CreateProperty = () => {
     />
   );
 };
-
 export default CreateProperty;
