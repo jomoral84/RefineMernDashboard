@@ -30,15 +30,19 @@ const AllProperties = () => {
 
   const currentPrice = sorter.find((item) => item.field === "price")?.order;
 
+  // Ordena por Precio
+
   const toggleSort = (field: string) => {
     setSorter([{ field, order: currentPrice === "asc" ? "desc" : "asc" }]);
   };
+
+  // Ordena por Title
 
   const currentFilterValues = useMemo(() => {
     const logicalFilters = filters.flatMap((item) =>
       "field" in item ? item : []
     );
-
+ 
     return {
       title: logicalFilters.find((item) => item.field === "title")?.value || "",
       propertyType:
