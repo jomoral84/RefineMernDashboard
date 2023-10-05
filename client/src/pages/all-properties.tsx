@@ -42,7 +42,7 @@ const AllProperties = () => {
     const logicalFilters = filters.flatMap((item) =>
       "field" in item ? item : []
     );
- 
+
     return {
       title: logicalFilters.find((item) => item.field === "title")?.value || "",
       propertyType:
@@ -60,8 +60,8 @@ const AllProperties = () => {
         <Stack direction="column" width="100%">
           <Typography fontSize={25} fontWeight={700} color="#11142d">
             {!allProperties.length
-              ? "There are no properties"
-              : "All Properties"}
+              ? "No hay Propiedades"
+              : "Todas las Propiedades"}
           </Typography>
           <Box
             mb={2}
@@ -78,15 +78,15 @@ const AllProperties = () => {
               mb={{ xs: "20px", sm: 0 }}
             >
               <CustomButton
-                title={`Sort price ${currentPrice === "asc" ? "↑" : "↓"}`}
+                title={`Ordenar precio ${currentPrice === "asc" ? "↑" : "↓"}`}
                 handleClick={() => toggleSort("price")}
-                backgroundColor="#475be8"
+                backgroundColor="#475be4"
                 color="#fcfcfc"
               />
               <TextField
                 variant="outlined"
                 color="info"
-                placeholder="Search by title"
+                placeholder="Buscar por Titulo"
                 value={currentFilterValues.title}
                 onChange={(e) => {
                   setFilters([
@@ -141,17 +141,15 @@ const AllProperties = () => {
           </Box>
         </Stack>
       </Box>
-
       <Stack direction="row" justifyContent="space-between" alignItems="center">
         <CustomButton
-          title="Add Property"
+          title="Añadir Propiedad"
           handleClick={() => navigate("/properties/create")}
           backgroundColor="#475be8"
           color="#fcfcfc"
           icon={<Add />}
         />
       </Stack>
-
       <Box mt="20px" sx={{ display: "flex", flexWrap: "wrap", gap: 3 }}>
         {allProperties?.map((property) => (
           <PropertyCard
@@ -164,6 +162,8 @@ const AllProperties = () => {
           />
         ))}
       </Box>
+
+      {/* Paginacion */}
 
       {allProperties.length > 0 && (
         <Box display="flex" gap={2} mt={3} flexWrap="wrap">
@@ -204,7 +204,7 @@ const AllProperties = () => {
           >
             {[10, 20, 30, 40, 50].map((size) => (
               <MenuItem key={size} value={size}>
-                Show {size}
+                Mostrar {size}
               </MenuItem>
             ))}
           </Select>
